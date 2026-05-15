@@ -1,0 +1,212 @@
+{
+  "provider": "autogen_agentchat.teams.RoundRobinGroupChat",
+  "component_type": "team",
+  "version": 1,
+  "component_version": 1,
+  "description": "Pesquisa de aceitação de refrigerante sabor Pitanga com Gengibre.",
+  "label": "PesquisaRefrigeranteTeam",
+  "config": {
+    "participants": [
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Agente coordenador principal.",
+        "label": "AgentePrincipal",
+        "config": {
+          "name": "AgentePrincipal",
+          "description": "Coordena a pesquisa de mercado.",
+          "system_message": "Você é o coordenador principal de uma pesquisa de mercado.\n\nSeu objetivo é coordenar a análise de aceitação de um refrigerante sabor Pitanga com Gengibre.\n\nVocê deve:\n- solicitar avaliações\n- consolidar os resultados\n- informar se o produto foi aprovado\n\nFinalize sempre com TERMINATE.",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Cliente Gemini",
+            "label": "GeminiClient",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "GEMINI_API_KEY",
+              "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+              "temperature": 0.7,
+              "model_info": {
+                "family": "gemini",
+                "vision": true,
+                "function_calling": true,
+                "json_output": true,
+                "structured_output": true
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto completo",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Agente esportista.",
+        "label": "EsportistaAI",
+        "config": {
+          "name": "EsportistaAI",
+          "description": "Perfil esportista.",
+          "system_message": "Você possui perfil esportista.\n\nVocê valoriza:\n- refrescância\n- energia\n- ingredientes naturais\n\nAvalie o refrigerante sabor Pitanga com Gengibre e diga se gostou ou não.",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Cliente Gemini",
+            "label": "GeminiClient",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "GEMINI_API_KEY",
+              "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+              "temperature": 0.7,
+              "model_info": {
+                "family": "gemini",
+                "vision": true,
+                "function_calling": true,
+                "json_output": true,
+                "structured_output": true
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto completo",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Agente minimalista.",
+        "label": "MinimalistaAI",
+        "config": {
+          "name": "MinimalistaAI",
+          "description": "Perfil minimalista.",
+          "system_message": "Você possui perfil minimalista.\n\nVocê prefere:\n- sabores suaves\n- simplicidade\n\nAvalie o refrigerante sabor Pitanga com Gengibre e diga se gostou ou não.",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Cliente Gemini",
+            "label": "GeminiClient",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "GEMINI_API_KEY",
+              "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+              "temperature": 0.7,
+              "model_info": {
+                "family": "gemini",
+                "vision": true,
+                "function_calling": true,
+                "json_output": true,
+                "structured_output": true
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto completo",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Agente inovador.",
+        "label": "TechLoverAI",
+        "config": {
+          "name": "TechLoverAI",
+          "description": "Perfil inovador.",
+          "system_message": "Você gosta de inovação e tecnologia.\n\nVocê gosta de:\n- sabores exóticos\n- novidades\n- experiências diferentes\n\nAvalie o refrigerante sabor Pitanga com Gengibre e diga se gostou ou não.",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Cliente Gemini",
+            "label": "GeminiClient",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "GEMINI_API_KEY",
+              "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+              "temperature": 0.7,
+              "model_info": {
+                "family": "gemini",
+                "vision": true,
+                "function_calling": true,
+                "json_output": true,
+                "structured_output": true
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto completo",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      }
+    ],
+    "termination_condition": {
+      "provider": "autogen_agentchat.conditions.TextMentionTermination",
+      "component_type": "termination",
+      "version": 1,
+      "component_version": 1,
+      "description": "Finaliza quando TERMINATE for mencionado.",
+      "label": "TextMentionTermination",
+      "config": {
+        "text": "TERMINATE"
+      }
+    },
+    "emit_team_events": false
+  }
+}
